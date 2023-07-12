@@ -1,5 +1,6 @@
 * {
     font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
 .headerBar {
@@ -25,13 +26,22 @@
     display: flex;
     justify-content: center;
     width: 25%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .searchBooks {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: black solid 1px;
     width: 75%;
-    margin-top: 50px;
+    margin-top: 20px;
+}
+
+.savedBooks h2,
+.searchBooks h2 {
+    width: 100%;
+    border: solid black 1px;
+    padding: 20px 0px;
+    text-align: center;
 }
