@@ -8,7 +8,7 @@
     background-color: #d9d9d9;
     border-bottom: 1px solid #e5e5e5;
     height: 50px;
-    padding: 0 20px;
+    padding: 12px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -17,14 +17,13 @@
 
 .contentBox {
     display: flex;
-    align-items: center;
+    height: 100vw;
     margin-top: 50px;
 }
 
 .savedBooks {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     width: 25%;
     margin-top: 50px;
 }
