@@ -3,7 +3,7 @@ var imdbURL = "https://search.imdbot.workers.dev/?q=love.json"
 
 
 
-fetch(omdbURL)
+fetch(imdbURL)
     .then(function (response) {
         return response.json();
     }
