@@ -10,5 +10,9 @@ fetch(imdbURL)
     )
     .then(function (data) {
         console.log(data);
-    }
+        var movieList = data;
+
+
+
+        }
     );
