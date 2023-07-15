@@ -10,5 +10,16 @@ fetch(imdbURL)
     )
     .then(function (data) {
         console.log(data);
-    }
+        }
     );
+
+fetch(oplURL)
+    .then(function (response) {
+        return response.json();
+    }
+    )
+    .then(function (data) {
+        console.log(data);
+        }
+    );
+    
