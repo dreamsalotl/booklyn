@@ -22,4 +22,3 @@ fetch(oplURL)
         console.log(data);
         }
     );
-    
