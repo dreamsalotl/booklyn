@@ -9,7 +9,7 @@ fetch(imdbURL)
     }
     )
     .then(function (data) {
-        console.log(data);
+        console.log(data.description[0]["#TITLE"]);
         }
     );
 
