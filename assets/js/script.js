@@ -6,19 +6,20 @@ function displaySearchResults (event) {
     var imdbURL = "https://search.imdbot.workers.dev/?q=" + searchTerm + ".json";
 
 
-    
+    console.log("searchTerm", searchTerm);
     fetch(imdbURL)
     .then(function (response) {
         return response.json();
     }
     )
     .then(function (data) {
+
         for(i = 0; i < 4; i++) {
 
                 var bookResults = document.getElementById('bookResults');
 
                 bookResults.appendChild(document.createElement("div"));
-                bookResults.children[i].append(data.description[i]["#TITLE"]);
+                bookResults.children[i].append(data.description[i]?.["#TITLE"]);
 
         }
         }
@@ -39,9 +40,6 @@ function displaySearchResults (event) {
             
 
         }
-<<<<<<< HEAD
-    );
-=======
 });
 
 clearResults();
@@ -62,4 +60,3 @@ function clearResults() {
 }
 
 $("#searchBtn").on("click", displaySearchResults);
->>>>>>> main
