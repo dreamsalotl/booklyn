@@ -19,8 +19,8 @@ function displaySearchResults (event) {
 
                 bookResults.appendChild(document.createElement("div"));
                 bookResults.children[i].append(data.description[i]["#TITLE"]);
-
-        }
+                bookResults.children[i].classList.add("style", "box-border", "p-4", "border-4", "border-black", "bg-gray-200", "text-center", "text-2xl", "font-bold", "rounded-lg", "shadow-lg", "hover:bg-gray-300", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:scale-110");
+            };
         }
     );
 
@@ -36,9 +36,8 @@ function displaySearchResults (event) {
 
             movieResults.appendChild(document.createElement("div"));
             movieResults.children[i].append(data.works[i]["title"]);
-            
-
-        }
+            movieResults.children[i].classList.add("style", "box-border", "p-4", "border-4", "border-black", "bg-gray-200", "text-center", "text-2xl", "font-bold", "rounded-lg", "shadow-lg", "hover:bg-gray-300", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:scale-110");
+        };
 });
 
 clearResults();
