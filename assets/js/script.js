@@ -10,8 +10,7 @@ function displaySearchResults (event) {
     fetch(imdbURL)
     .then(function (response) {
         return response.json();
-    }
-    )
+    })
     .then(function (data) {
         for(i = 0; i < 4; i++) {
 
@@ -39,27 +38,5 @@ function displaySearchResults (event) {
             
 
         }
-<<<<<<< HEAD
-    );
-=======
 });
-
-clearResults();
 }
-
-function clearResults() {
-
-    var bookResults = document.getElementById('bookResults');
-    var movieResults = document.getElementById('movieResults');
-
-    while(bookResults.firstChild) {
-        bookResults.removeChild(bookResults.firstChild);
-    }
-
-    while(movieResults.firstChild) {
-        movieResults.removeChild(movieResults.firstChild);
-    }
-}
-
-$("#searchBtn").on("click", displaySearchResults);
->>>>>>> main
