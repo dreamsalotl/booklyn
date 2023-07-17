@@ -39,6 +39,9 @@ function displaySearchResults (event) {
             
 
         }
+<<<<<<< HEAD
+    );
+=======
 });
 
 clearResults();
@@ -59,3 +62,4 @@ function clearResults() {
 }
 
 $("#searchBtn").on("click", displaySearchResults);
+>>>>>>> main
