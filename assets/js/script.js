@@ -1,9 +1,11 @@
-var oplURL = "https://openlibrary.org/subjects/love.json"
-var imdbURL = "https://search.imdbot.workers.dev/?q=love.json"
+function displaySearchResults (event) {
+    event.preventDefault();
 
-
-
-fetch(imdbURL)
+    var searchTerm = document.getElementById("simple-search").value;
+    var oplURL = "https://openlibrary.org/subjects/" + searchTerm + ".json";
+    var imdbURL = "https://search.imdbot.workers.dev/?q=" + searchTerm + ".json";
+    
+    fetch(imdbURL)
     .then(function (response) {
         return response.json();
     }
@@ -13,7 +15,7 @@ fetch(imdbURL)
         }
     );
 
-fetch(oplURL)
+    fetch(oplURL)
     .then(function (response) {
         return response.json();
     }
@@ -22,4 +24,6 @@ fetch(oplURL)
         console.log(data);
         }
     );
-    
+}
+
+$("#searchBtn").on("click", displaySearchResults);
