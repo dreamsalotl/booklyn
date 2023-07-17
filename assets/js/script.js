@@ -4,6 +4,8 @@ function displaySearchResults (event) {
     var searchTerm = document.getElementById("simple-search").value;
     var oplURL = "https://openlibrary.org/subjects/" + searchTerm + ".json";
     var imdbURL = "https://search.imdbot.workers.dev/?q=" + searchTerm + ".json";
+
+
     
     fetch(imdbURL)
     .then(function (response) {
@@ -11,7 +13,12 @@ function displaySearchResults (event) {
     }
     )
     .then(function (data) {
-        console.log(data.description[0]["#TITLE"]);
+        for(i = 0; i < 4; i++) {
+            //console.log(data.description[i]["#TITLE"]);
+            console.log(data.description);
+            
+
+        }
         }
     );
 
@@ -21,9 +28,13 @@ function displaySearchResults (event) {
     }
     )
     .then(function (data) {
-        console.log(data);
+        for(i = 0; i < 4; i++) {
+            //console.log(data.works[i]["title"]);
+            console.log(data.works);
+            
+
         }
-    );
+});
 }
 
 $("#searchBtn").on("click", displaySearchResults);
