@@ -24,6 +24,10 @@ function displaySearchResults(event) {
 
         var author = data.works[i].authors[0].name;
         var year = data.works[i].first_publish_year;
+        
+        bookResults.appendChild(document.createElement("div"));
+        bookResults.children[i].append(data.works[i][bookTitle]);
+        bookResults.children[i].classList.add("style", "box-border", "p-4", "border-4", "border-black", "bg-gray-200", "text-center", "text-2xl", "font-bold", "rounded-lg", "shadow-lg", "hover:bg-gray-300", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:scale-110");
 
         bookElement.setAttribute("onclick", `exploreItem("${author}", "${year}", "${bookTitle}", "${bookCoverURL}")`);
         bookResults.appendChild(bookElement);
@@ -45,6 +49,10 @@ function displaySearchResults(event) {
         var movieTitle = data.description[i]?.["#TITLE"];
         var movieResults = document.getElementById("movieResults");
         var movieElement = document.createElement("div");
+        
+         movieResults.appendChild(document.createElement("div"));
+         movieResults.children[i].append(data.description[i][movieTitle]);
+         movieResults.children[i].classList.add("style", "box-border", "p-4", "border-4", "border-black", "bg-gray-200", "text-center", "text-2xl", "font-bold", "rounded-lg", "shadow-lg", "hover:bg-gray-300", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:scale-110");
 
         console.log("movieTitle", movieTitle);
         movieElement.setAttribute("onclick", `exploreItem("${movieTitle}")`);
