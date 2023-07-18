@@ -68,7 +68,7 @@ function clearResults() {
     movieResults.removeChild(movieResults.firstChild);
   }
 }
-
+// Book section 
 function exploreItem(author, year, title, coverURL) {
     var contentElement = document.getElementById("preview-content");
     contentElement.innerHTML = "";
@@ -99,7 +99,10 @@ contentElement.appendChild(authorElement)
   var yearElement = document.createElement("p")
   yearElement.innerText = `Year: ${year}`
   contentElement.appendChild(yearElement)
+}
 
+function exploreMovie() {
+    
 }
 
 $("#searchBtn").on("click", displaySearchResults);
