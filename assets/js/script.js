@@ -77,6 +77,8 @@ function clearResults() {
     movieResults.removeChild(movieResults.firstChild);
   }
 }
+
+
 // Book section 
 function exploreBook(author, year, title, coverURL) {
     var contentElement = document.getElementById("preview-content");
@@ -108,6 +110,7 @@ contentElement.appendChild(authorElement)
   var yearElement = document.createElement("p")
   yearElement.innerText = `Year: ${year}`
   contentElement.appendChild(yearElement)
+
 }
 
 function exploreMovie(movieActors, movieYear, movieTitle, movieCover) {
@@ -133,3 +136,5 @@ function exploreMovie(movieActors, movieYear, movieTitle, movieCover) {
 };
 
 $("#searchBtn").on("click", displaySearchResults);
+
+
