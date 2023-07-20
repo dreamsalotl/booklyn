@@ -1,10 +1,11 @@
+var recentSearches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+
 function displaySearchResults(event) {
   event.preventDefault();
   // Search term must be in lowercase for the books API to work
   var searchTerm = document.getElementById("simple-search").value;
   var oplURL = "https://openlibrary.org/subjects/" + searchTerm.toLowerCase() + ".json";
   var imdbURL = "https://search.imdbot.workers.dev/?q=" + searchTerm + ".json";
-  var previousSearches = [];
 
 
   fetch(oplURL)
@@ -73,6 +74,8 @@ function displaySearchResults(event) {
     });
 
   clearResults();
+  saveRecentSearches();
+  loadRecentSearches();
 };
 
 function clearResults() {
@@ -145,6 +148,27 @@ function exploreMovie(movieActors, movieYear, movieTitle, movieCover) {
     contentElement.appendChild(yearElement)
 };
 
+function saveRecentSearches() {
+  var searchTerm = document.getElementById("simple-search").value;
+  if (recentSearches.length == 5) {
+    recentSearches.pop();
+    recentSearches.unshift(searchTerm);
+  } else {
+    recentSearches.unshift(searchTerm);
+  }
+
+  localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+}
+
+function loadRecentSearches() {
+  $("#previousSearches").empty();
+  for (i = 0; i < recentSearches.length; i++) {
+    $("#previousSearches").append(`<li>${recentSearches[i]}</li>`);
+  }
+}
+
+
+
 $("#searchBtn").on("click", displaySearchResults);
 
-
+loadRecentSearches();
