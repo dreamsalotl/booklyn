@@ -76,6 +76,8 @@ function clearResults() {
   while (movieResults.firstChild) {
     movieResults.removeChild(movieResults.firstChild);
   }
+  document.getElementById("preview-section").setAttribute("style", "display: none");
+
 }
 
 
@@ -111,6 +113,8 @@ contentElement.appendChild(authorElement)
   yearElement.innerText = `Year: ${year}`
   contentElement.appendChild(yearElement)
 
+  document.getElementById("preview-section").setAttribute("style", "display: flex");
+
 }
 
 function exploreMovie(movieActors, movieYear, movieTitle, movieCover) {
@@ -133,8 +137,11 @@ function exploreMovie(movieActors, movieYear, movieTitle, movieCover) {
     var yearElement = document.createElement("p")
     yearElement.innerText = `Year: ${movieYear}`
     contentElement.appendChild(yearElement)
+
+    document.getElementById("preview-section").setAttribute("style", "display: flex");
 };
 
 $("#searchBtn").on("click", displaySearchResults);
+
 
 
