@@ -37,14 +37,14 @@
           <input
             type="text"
             id="simple-search"
-            class="bg-gray-50 border border-gray-300 text-black-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-cyan-700 dark:border-gray-300 dark:placeholder-gray-200 dark:text-white dark:focus:ring-blue-500 dark:focus:border-cyan-500"
+            class="bg-orange-900 border border-gray-300 text-black-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-orange-900 dark:border-gray-300 dark:placeholder-gray-200 dark:text-white dark:focus:ring-blue-500 dark:focus:border-cyan-500"
             placeholder="Search Term"
             required
           />
         </div>
         <button
           type="submit"
-          class="flex p-2.5 ml-2 text-sm font-medium text-white bg-orange-00 rounded-lg border border-white hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-blue-800"
+          class="flex p-2.5 ml-2 text-sm font-medium text-white bg-orange-00 rounded-lg border border-white hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-orange-900 dark:hover:bg-amber-600 dark:focus:ring-amber-600"
           id="searchBtn"
         >
           <svg
@@ -66,9 +66,9 @@
         </button>
       </form>
 
-      <div id="previousSearches" class="flex flex-col justify-center items-center w-100 h-80 text-white">Recent Searches:</div>
+      <div id="previousSearches" class="flex flex-row justify-around items-center w-100 h-80 text-white">Recent Searches:</div>
 
-      
+      <div id="sections" class="flex justify-around"></div>
 
 
       <div id="searchResults" class="flex justify-center gap-16">

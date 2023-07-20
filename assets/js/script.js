@@ -35,11 +35,14 @@ function displaySearchResults(event) {
       };
         //   Created aside element to display the category of the search results (books)
         var sections = document.querySelector("#sections");
+        if (document.querySelector(".bookCategory")) {
+            return;
+        }
         sections.appendChild(document.createElement("aside")).classList.add("bookCategory");
         var bookCategory = document.querySelector(".bookCategory");
         sections.appendChild(bookCategory);
-        bookCategory.textContent = "Books";
-        bookCategory.style.marginTop = "";
+        bookCategory.textContent = "Movies";
+        bookCategory.classList.add("style", "text-3xl", "text-orange-300", "font-serif", "font-bold", "pt-10", "p-4", "tracking-wide");
     });
 
   fetch(imdbURL)
@@ -70,10 +73,14 @@ function displaySearchResults(event) {
       }
     //   created aside element to display the category of the search results (movies)
     var sections = document.querySelector("#sections");
+    if (document.querySelector(".bookCategory")) {
+      return;
+  }
     sections.appendChild(document.createElement("aside")).classList.add("movieCategory");
     var movieCategory = document.querySelector(".movieCategory");
     sections.appendChild(movieCategory);
-    movieCategory.textContent = "Movies";
+    movieCategory.textContent = "Books";
+    movieCategory.classList.add("style", "text-3xl", "text-orange-300", "font-serif", "font-bold", "pt-10", "tracking-wide", "p-4");
     });
 
   clearResults();
@@ -172,7 +179,11 @@ function saveRecentSearches() {
 function loadRecentSearches() {
   $("#previousSearches").empty();
   for (i = 0; i < recentSearches.length; i++) {
-    $("#previousSearches").append(`<li>${recentSearches[i]}</li>`);
+    var searchButton = document.createElement("button");
+    searchButton.setAttribute("onclick", `displayPreviousSearch("${recentSearches[i]}")`);
+    searchButton.classList.add("style", "box-border", "w-60", "h-12", "border", "border-white", "bg-orange-900", "text-center", "text-2xl", "rounded-lg", "shadow-lg", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:bg-amber-600");
+    searchButton.textContent = recentSearches[i];
+    $("#previousSearches").append(searchButton);
   }
 }
 
