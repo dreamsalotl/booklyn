@@ -34,10 +34,12 @@ function displaySearchResults(event) {
         bookResults.children[i]?.append(bookTitle);
       };
         //   Created aside element to display the category of the search results (books)
-        bookResults.appendChild(document.createElement("aside")).classList.add("bookCategory");
+        var sections = document.querySelector("#sections");
+        sections.appendChild(document.createElement("aside")).classList.add("bookCategory");
         var bookCategory = document.querySelector(".bookCategory");
-        bookResults.appendChild(bookCategory);
+        sections.appendChild(bookCategory);
         bookCategory.textContent = "Books";
+        bookCategory.style.marginTop = "";
     });
 
   fetch(imdbURL)
@@ -67,9 +69,10 @@ function displaySearchResults(event) {
         movieResults.children[i]?.append(movieTitle);
       }
     //   created aside element to display the category of the search results (movies)
-    movieResults.appendChild(document.createElement("aside")).classList.add("movieCategory");
+    var sections = document.querySelector("#sections");
+    sections.appendChild(document.createElement("aside")).classList.add("movieCategory");
     var movieCategory = document.querySelector(".movieCategory");
-    movieResults.appendChild(movieCategory);
+    sections.appendChild(movieCategory);
     movieCategory.textContent = "Movies";
     });
 
