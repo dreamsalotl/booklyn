@@ -180,7 +180,8 @@ function loadRecentSearches() {
   $("#previousSearches").empty();
   for (i = 0; i < recentSearches.length; i++) {
     var searchButton = document.createElement("button");
-    searchButton.setAttribute("onclick", `displayPreviousSearch("${recentSearches[i]}")`);
+    searchButton.setAttribute( "onclick", `document.getElementById("simple-search").value = "${recentSearches[i]}"; displaySearchResults(event);`);
+
     searchButton.classList.add("style", "box-border", "w-60", "h-12", "border", "border-white", "bg-orange-900", "text-center", "text-2xl", "rounded-lg", "shadow-lg", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:bg-amber-600");
     searchButton.textContent = recentSearches[i];
     $("#previousSearches").append(searchButton);
