@@ -1,10 +1,11 @@
+var recentSearches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+
 function displaySearchResults(event) {
   event.preventDefault();
   // Search term must be in lowercase for the books API to work
   var searchTerm = document.getElementById("simple-search").value;
   var oplURL = "https://openlibrary.org/subjects/" + searchTerm.toLowerCase() + ".json";
   var imdbURL = "https://search.imdbot.workers.dev/?q=" + searchTerm + ".json";
-  var previousSearches = [];
 
 
   fetch(oplURL)
@@ -31,7 +32,12 @@ function displaySearchResults(event) {
         bookResults.appendChild(bookElement);
         bookResults.children[i].classList.add("style", "box-border", "p-4", "border-4", "border-black", "bg-gray-200", "text-center", "text-2xl", "font-bold", "rounded-lg", "shadow-lg", "hover:bg-gray-300", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:scale-110");
         bookResults.children[i]?.append(bookTitle);
-      }
+      };
+        //   Created aside element to display the category of the search results (books)
+        bookResults.appendChild(document.createElement("aside")).classList.add("bookCategory");
+        var bookCategory = document.querySelector(".bookCategory");
+        bookResults.appendChild(bookCategory);
+        bookCategory.textContent = "Books";
     });
 
   fetch(imdbURL)
@@ -60,10 +66,17 @@ function displaySearchResults(event) {
         movieResults.children[i].classList.add("style", "box-border", "p-4", "border-4", "border-black", "bg-gray-200", "text-center", "text-2xl", "font-bold", "rounded-lg", "shadow-lg", "hover:bg-gray-300", "hover:shadow-xl", "transition", "duration-500", "ease-in-out", "transform", "hover:-translate-y-1", "hover:scale-110");
         movieResults.children[i]?.append(movieTitle);
       }
+    //   created aside element to display the category of the search results (movies)
+    movieResults.appendChild(document.createElement("aside")).classList.add("movieCategory");
+    var movieCategory = document.querySelector(".movieCategory");
+    movieResults.appendChild(movieCategory);
+    movieCategory.textContent = "Movies";
     });
 
   clearResults();
-}
+  saveRecentSearches();
+  loadRecentSearches();
+};
 
 function clearResults() {
   var bookResults = document.getElementById("bookResults");
@@ -141,7 +154,28 @@ function exploreMovie(movieActors, movieYear, movieTitle, movieCover) {
     document.getElementById("preview-section").setAttribute("style", "display: flex");
 };
 
+function saveRecentSearches() {
+  var searchTerm = document.getElementById("simple-search").value;
+  if (recentSearches.length == 5) {
+    recentSearches.pop();
+    recentSearches.unshift(searchTerm);
+  } else {
+    recentSearches.unshift(searchTerm);
+  }
+
+  localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+}
+
+function loadRecentSearches() {
+  $("#previousSearches").empty();
+  for (i = 0; i < recentSearches.length; i++) {
+    $("#previousSearches").append(`<li>${recentSearches[i]}</li>`);
+  }
+}
+
+
+
 $("#searchBtn").on("click", displaySearchResults);
 
 
-
+loadRecentSearches();
